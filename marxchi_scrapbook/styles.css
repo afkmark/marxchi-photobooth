@@ -1,0 +1,2745 @@
+:root {
+  --paper: #fffaf2;
+  --paper-2: #f7eee2;
+  --ink: #302a2d;
+  --muted: #756966;
+  --line: #dccfc0;
+
+  --rose: #db8199;
+  --rose-deep: #b55370;
+  --sage: #82a895;
+  --sky: #7ba2bb;
+  --mustard: #d9ad63;
+  --lav: #a99abf;
+
+  --shadow: 0 25px 65px rgba(71, 53, 46, 0.11);
+  --soft-shadow: 0 12px 28px rgba(71, 53, 46, 0.08);
+  --radius: 28px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Nunito", system-ui, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 10% 5%,
+      rgba(255, 255, 255, 0.96),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(235, 217, 230, 0.8),
+      transparent 23%
+    ),
+    linear-gradient(
+      180deg,
+      #eee5d8 0%,
+      #f8f0e7 50%,
+      #ece2d7 100%
+    );
+
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+/* ================================
+   PAPER / BACKGROUND
+================================ */
+
+.paper-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+
+  pointer-events: none;
+  opacity: 0.48;
+
+  background-image:
+    radial-gradient(
+      rgba(72, 47, 39, 0.11) 0.55px,
+      transparent 0.55px
+    ),
+    radial-gradient(
+      rgba(255, 255, 255, 0.9) 0.7px,
+      transparent 0.7px
+    );
+
+  background-size:
+    11px 11px,
+    17px 17px;
+
+  background-position:
+    0 0,
+    5px 8px;
+
+  mix-blend-mode: multiply;
+}
+
+.doodle-field {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: -2;
+}
+
+.doodle {
+  position: absolute;
+  font: 40px "Gochi Hand";
+  color: rgba(80, 59, 55, 0.14);
+}
+
+.d1 {
+  top: 15%;
+  left: 3%;
+  transform: rotate(-8deg);
+}
+
+.d2 {
+  top: 37%;
+  right: 4%;
+  font-size: 54px;
+}
+
+.d3 {
+  bottom: 24%;
+  left: 4%;
+}
+
+.d4 {
+  bottom: 8%;
+  right: 9%;
+  font-size: 30px;
+}
+
+/* ================================
+   PAGE
+================================ */
+
+.page {
+  width: min(1240px, calc(100% - 30px));
+  margin: 22px auto 42px;
+}
+
+.paper-card {
+  position: relative;
+
+  background: var(--paper);
+  border: 1px solid rgba(92, 68, 58, 0.08);
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+
+  padding: 13px 18px;
+
+  border-radius: 22px;
+  transform: rotate(-0.15deg);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  text-decoration: none;
+  color: inherit;
+
+  flex: none;
+}
+
+.brand-stamp {
+  display: grid;
+  place-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 13px;
+
+  background: #302b30;
+  color: #fff8f0;
+
+  font-family: "Bowlby One SC";
+  font-size: 17px;
+
+  box-shadow: 3px 4px 0 #d995a7;
+
+  transform: rotate(-5deg);
+}
+
+.brand strong {
+  display: block;
+
+  font: 700 27px/1 "Gochi Hand";
+}
+
+.brand small {
+  display: block;
+
+  margin-top: 2px;
+
+  font: 500 9px "DM Mono";
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.top-nav a,
+.nav-link {
+  font: 700 11px "DM Mono";
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  color: #6f625e;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.top-nav a:hover,
+.nav-link:hover {
+  color: var(--rose-deep);
+}
+
+.icon-link,
+.footer-email {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-link svg,
+.footer-email svg {
+  width: 15px;
+  height: 15px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+
+  gap: 22px;
+  align-items: start;
+
+  margin: 27px 0 21px;
+}
+
+.hero-copy {
+  padding: 32px 37px;
+
+  border-radius: 31px;
+
+  min-height: 300px;
+}
+
+.tilt-left {
+  transform: rotate(-0.9deg);
+}
+
+.tilt-right {
+  transform: rotate(1.8deg);
+}
+
+.paper-label {
+  font: 500 10px "DM Mono";
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+
+  color: var(--rose-deep);
+}
+
+.hero h1 {
+  margin: 12px 0 15px;
+
+  font: 400 clamp(41px, 5.5vw, 72px) / 0.94 "Bowlby One SC";
+  letter-spacing: -0.035em;
+}
+
+.hero h1 span {
+  color: var(--rose-deep);
+  text-shadow: 2px 2px 0 #f1d2db;
+}
+
+.hero p {
+  max-width: 770px;
+  margin: 0;
+
+  color: #6d625e;
+
+  line-height: 1.66;
+  font-size: 15px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  margin-top: 22px;
+}
+
+.hero-chips {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+
+  margin-top: 20px;
+}
+
+.hero-chips span {
+  padding: 7px 10px;
+
+  font: 600 12px "Gochi Hand";
+
+  background: #f7eddc;
+  border: 1px dashed #d7bea5;
+  border-radius: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 13px;
+
+  border-radius: 11px;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: #312c31;
+  color: #fff8ef;
+
+  box-shadow: 4px 5px 0 #d58ca1;
+}
+
+.btn-primary.big {
+  padding: 12px 17px;
+  font-weight: 800;
+}
+
+.btn-paper {
+  background: #fff7ed;
+  border: 1px solid #dfd1c1;
+
+  box-shadow: 0 4px 0 rgba(104, 77, 61, 0.08);
+
+  color: #584d49;
+  font-weight: 800;
+}
+
+.hero-note {
+  position: relative;
+
+  min-height: 245px;
+  padding: 28px 25px 24px;
+
+  background: #f3e2a9;
+
+  box-shadow: 10px 14px 30px rgba(84, 66, 42, 0.13);
+}
+
+.hero-note::before {
+  content: "";
+
+  position: absolute;
+  inset: 8px;
+
+  border: 2px dashed rgba(114, 82, 44, 0.18);
+
+  pointer-events: none;
+}
+
+.pin {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+
+  width: 11px;
+  height: 11px;
+
+  background: #d2646e;
+  border-radius: 50%;
+
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.hero-note strong {
+  font: 600 18px "Gochi Hand";
+}
+
+.note-big {
+  margin-top: 13px;
+
+  font: 600 31px/1.02 "Caveat";
+}
+
+.hero-note p {
+  margin: 14px 0 0;
+
+  font: 500 19px/1.05 "Caveat";
+
+  color: #6d5846;
+}
+
+.hero-note small {
+  display: block;
+
+  margin-top: 15px;
+
+  font: 600 14px "Gochi Hand";
+}
+
+/* ================================
+   QUICK BAR
+================================ */
+
+.quickbar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-bottom: 24px;
+  padding: 8px;
+
+  border-radius: 19px;
+}
+
+.quickbar > div {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: auto auto;
+
+  column-gap: 10px;
+  align-items: center;
+
+  padding: 11px 13px;
+
+  border-right: 1px dashed #d7c8b9;
+}
+
+.quickbar > div:last-child {
+  border-right: 0;
+}
+
+.quick-icon {
+  grid-row: 1 / 3;
+
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 10px;
+
+  background: #f3e9dd;
+
+  font: 700 11px "DM Mono";
+  color: #6e615d;
+}
+
+.quickbar b {
+  font: 700 13px "Gochi Hand";
+}
+
+.quickbar small {
+  font-size: 10px;
+  color: #8b7d77;
+}
+
+/* ================================
+   WORKSPACE
+================================ */
+
+.workspace {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.48fr)
+    minmax(410px, 1fr);
+
+  gap: 22px;
+}
+
+.booth-card,
+.toolbox,
+.memories {
+  border-radius: 28px;
+}
+
+.booth-card,
+.toolbox {
+  padding: 24px;
+}
+
+/* ================================
+   SECTION HEAD
+================================ */
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+.section-head.compact {
+  margin-bottom: 16px;
+}
+
+.section-head h2 {
+  margin: 5px 0 0;
+
+  font: 600 31px/1 "Gochi Hand";
+}
+
+.status {
+  padding: 8px 11px;
+
+  background: #f3ece5;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+
+  font: 500 10px "DM Mono";
+
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+
+  color: #857671;
+}
+
+.status i {
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  margin-right: 6px;
+
+  border-radius: 50%;
+
+  background: #b4a9a3;
+}
+
+.status.on i {
+  background: #67b17e;
+  box-shadow: 0 0 0 4px rgba(103, 177, 126, 0.14);
+}
+
+/* ================================
+   CAMERA SHELL
+================================ */
+
+.camera-shell {
+  position: relative;
+
+  padding: 14px 14px 10px;
+
+  background: #dfd4c7;
+
+  border-radius: 20px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(66, 43, 38, 0.07);
+}
+
+.washi {
+  position: absolute;
+  z-index: 8;
+
+  width: 93px;
+  height: 24px;
+
+  opacity: 0.84;
+
+  filter: drop-shadow(0 3px 3px rgba(60, 40, 30, 0.09));
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #f1cc78 0 9px,
+      #edd07f 9px 18px
+    );
+}
+
+.washi-a {
+  top: 2px;
+  left: 34px;
+
+  transform: rotate(-8deg);
+}
+
+.washi-b {
+  top: 2px;
+  right: 34px;
+
+  transform: rotate(9deg);
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #efb4c0 0 9px,
+      #efc3cb 9px 18px
+    );
+}
+
+/* ================================
+   CAMERA STAGE
+================================ */
+
+.camera-stage {
+  position: relative;
+
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  border-radius: 17px;
+
+  background: #242124;
+
+  box-shadow: 0 15px 30px rgba(60, 40, 30, 0.16);
+}
+
+/* Camera video must always stay behind the frame */
+.camera-stage video {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transform: scaleX(-1);
+
+  filter: none;
+
+  transition: filter 0.22s ease;
+}
+
+/* ================================
+   CAMERA PLACEHOLDER
+================================ */
+
+.camera-placeholder {
+  position: absolute;
+  inset: 0;
+
+  z-index: 10;
+
+  display: grid;
+  place-items: center;
+
+  padding: 25px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      160deg,
+      #fffaf2,
+      #efe1d2
+    );
+}
+
+.placeholder-card {
+  max-width: 360px;
+
+  padding: 26px 22px;
+
+  border-radius: 19px;
+
+  background: rgba(255, 251, 244, 0.88);
+
+  border: 1px dashed #d5c1ad;
+
+  box-shadow: 0 10px 24px rgba(68, 50, 42, 0.08);
+}
+
+.placeholder-doodle {
+  font: 44px "Gochi Hand";
+
+  color: var(--rose-deep);
+
+  transform: rotate(-8deg);
+}
+
+.camera-placeholder strong {
+  display: block;
+
+  font: 600 29px "Gochi Hand";
+}
+
+.camera-placeholder span {
+  display: block;
+
+  margin: 6px auto 17px;
+
+  color: #7c6f69;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ============================================================
+   FIXED LIVE FRAME SYSTEM
+   ------------------------------------------------------------
+   The frame stays above the camera but its center remains
+   transparent, so it will NEVER cover the live video.
+============================================================ */
+
+/* Base frame layer */
+.frame-live {
+  position: absolute;
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  border-radius: inherit;
+
+  box-shadow: none;
+}
+
+/* Default paper frame */
+.frame-live::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border: 14px solid #f5ead5;
+
+  border-radius: inherit;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(63, 46, 39, 0.11);
+}
+
+/* Cream Paper */
+.frame-live.frame-cream::before {
+  border-color: #f5ead5;
+}
+
+/* Blush Mail */
+.frame-live.frame-pink::before {
+  border-color: #fff4f4;
+}
+
+/* Mint Journal */
+.frame-live.frame-mint::before {
+  border-color: #f8fffa;
+}
+
+/* Blue Postcard */
+.frame-live.frame-blue::before {
+  border-color: #f5fbff;
+}
+
+/* Berry Doodle */
+.frame-live.frame-berry::before {
+  border-color: #fff2f5;
+}
+
+/* Kraft Note */
+.frame-live.frame-kraft::before {
+  border-color: #f7ead7;
+}
+
+/* ============================================================
+   CHECKER FUN
+   ------------------------------------------------------------
+   The checker pattern exists ONLY inside the border.
+   The middle remains completely transparent.
+============================================================ */
+
+.frame-live.frame-checker::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border: 17px solid transparent;
+
+  border-radius: inherit;
+
+  background:
+    repeating-conic-gradient(
+      #f0dfc1 0 25%,
+      #4e494f 0 50%
+    ) 50% / 26px 26px;
+
+  /*
+    The mask creates a hollow center.
+    Only the border area remains visible.
+  */
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  mask-composite: exclude;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+
+/* ============================================================
+   MIDNIGHT PAGE
+============================================================ */
+
+.frame-live.frame-night::before {
+  border-color: #e8dce9;
+}
+
+.frame-live.frame-night::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  border: 7px solid transparent;
+
+  border-radius: inherit;
+
+  box-shadow:
+    inset 0 0 0 7px #35323c;
+}
+
+/* ================================
+   CAMERA VIGNETTE
+================================ */
+
+.camera-vignette {
+  position: absolute;
+  inset: 0;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.08),
+      transparent 17%,
+      transparent 78%,
+      rgba(0, 0, 0, 0.13)
+    );
+}
+
+/* ================================
+   SHOT TIP
+================================ */
+
+.shot-tip {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+
+  z-index: 7;
+
+  padding: 6px 8px;
+
+  border-radius: 7px;
+
+  background: rgba(39, 31, 34, 0.68);
+
+  color: #fff5eb;
+
+  font: 500 8px "DM Mono";
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ================================
+   STICKER LAYER
+================================ */
+
+.sticker-layer {
+  position: absolute;
+  inset: 0;
+
+  z-index: 6;
+
+  touch-action: none;
+}
+
+.sticker-item {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 32px;
+  min-height: 32px;
+
+  padding: 5px 9px;
+
+  border-radius: 9px;
+
+  font: 600 31px/1 "Gochi Hand";
+
+  color: #30292d;
+
+  text-shadow:
+    2px 2px 0 rgba(255, 250, 240, 0.9),
+    0 3px 9px rgba(0, 0, 0, 0.16);
+
+  cursor: grab;
+
+  user-select: none;
+  touch-action: none;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-4deg);
+}
+
+.sticker-item.word-sticker {
+  background: #fff4e9;
+
+  border: 2px solid #312c30;
+
+  box-shadow: 4px 5px 0 #efb1bf;
+
+  font-size: 23px;
+
+  text-shadow: none;
+}
+
+.sticker-delete {
+  position: absolute;
+
+  right: -7px;
+  top: -8px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: #312c30;
+  color: #fff;
+
+  font: 14px/1 "Nunito";
+
+  cursor: pointer;
+
+  opacity: 0;
+
+  transition: 0.18s;
+}
+
+.sticker-item:hover .sticker-delete,
+.sticker-item:focus-within .sticker-delete {
+  opacity: 1;
+}
+
+/* ================================
+   COUNTDOWN
+================================ */
+
+.countdown {
+  position: absolute;
+  inset: 0;
+
+  z-index: 12;
+
+  display: grid;
+  place-items: center;
+
+  font: 400 clamp(86px, 13vw, 170px) "Bowlby One SC";
+
+  color: #fff8ef;
+
+  text-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.24);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform: scale(0.7);
+}
+
+.countdown.show {
+  animation: countPop 0.7s ease both;
+}
+
+@keyframes countPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+
+  35%,
+  75% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.16);
+  }
+}
+
+/* ================================
+   CAMERA CAPTION
+================================ */
+
+.camera-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  padding: 10px 4px 2px;
+
+  font: 500 9px "DM Mono";
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+
+  color: #776966;
+}
+
+/* ================================
+   CAMERA CONTROLS
+================================ */
+
+.camera-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 12px;
+
+  flex-wrap: wrap;
+}
+
+.camera-hint {
+  margin-left: auto;
+
+  font-size: 11px;
+
+  color: #8a7b74;
+}
+
+/* ================================
+   TOOL SECTIONS
+================================ */
+
+.tool-section {
+  padding-top: 15px;
+  margin-top: 15px;
+
+  border-top: 1px dashed #d5c5b5;
+}
+
+.tool-section.first {
+  padding-top: 0;
+  margin-top: 0;
+
+  border-top: 0;
+}
+
+.tool-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+
+  margin-bottom: 10px;
+}
+
+.tool-title > b,
+.tool-title label {
+  font: 600 21px "Gochi Hand";
+}
+
+.tool-title > span {
+  font: 500 9px "DM Mono";
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: #8a7a75;
+}
+
+/* ================================
+   LAYOUT
+================================ */
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+.layout-card {
+  padding: 7px;
+
+  border: 1px solid transparent;
+  border-radius: 11px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.layout-card.active {
+  background: #f7ecdf;
+
+  border-color: #d9bda9;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.layout-card b {
+  display: block;
+
+  margin-top: 6px;
+
+  font: 700 11px "Nunito";
+}
+
+.layout-card small {
+  font-size: 9px;
+  color: #887a74;
+}
+
+.layout-art {
+  display: block;
+
+  position: relative;
+
+  aspect-ratio: 1.1;
+
+  border-radius: 8px;
+
+  background: #eadfce;
+  border: 1px solid #d4c4b4;
+
+  overflow: hidden;
+}
+
+.layout-art::before,
+.layout-art::after {
+  content: "";
+
+  position: absolute;
+
+  background: #fffaf0;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.layout-single::before {
+  inset: 15px;
+}
+
+.layout-duo::before {
+  left: 9px;
+  right: 9px;
+  top: 9px;
+
+  height: 23%;
+}
+
+.layout-duo::after {
+  left: 9px;
+  right: 9px;
+  bottom: 9px;
+
+  height: 23%;
+}
+
+.layout-strip::before {
+  left: 22%;
+  top: 6px;
+  right: 22%;
+
+  height: 18px;
+
+  box-shadow:
+    0 24px 0 #fffaf0,
+    0 48px 0 #fffaf0,
+    0 72px 0 #fffaf0;
+}
+
+.layout-film::before {
+  left: 30%;
+  top: 7px;
+  right: 30%;
+
+  height: 21%;
+
+  box-shadow:
+    0 23px 0 #fffaf0,
+    0 46px 0 #fffaf0;
+}
+
+.strip-note {
+  display: none;
+
+  margin-top: 10px;
+  padding: 9px 11px;
+
+  background: #f7efdf;
+
+  border-left: 4px solid #dcae65;
+  border-radius: 7px;
+
+  font-size: 10px;
+  line-height: 1.45;
+
+  color: #766961;
+}
+
+/* ================================
+   BORDERS
+================================ */
+
+.border-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+.border-card {
+  padding: 6px;
+
+  text-align: left;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.border-card.active {
+  background: #f7ecdf;
+
+  border-color: #d9bda9;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.border-card b {
+  display: block;
+
+  margin-top: 6px;
+
+  font: 600 10px/1.15 "Nunito";
+}
+
+.border-preview {
+  display: block;
+
+  position: relative;
+
+  aspect-ratio: 1.2;
+
+  background: #fff;
+
+  border: 6px solid #fff;
+
+  box-shadow: 0 4px 8px rgba(67, 45, 38, 0.08);
+
+  overflow: hidden;
+}
+
+.border-preview::before,
+.border-preview::after {
+  content: "";
+
+  position: absolute;
+  inset: 11px;
+
+  border: 1px solid rgba(49, 44, 48, 0.16);
+}
+
+.border-preview i {
+  position: absolute;
+
+  bottom: 5px;
+  left: 7px;
+
+  z-index: 2;
+
+  font: 600 11px "Caveat";
+
+  color: #655650;
+}
+
+.border-preview.cream {
+  background: #efe3d0;
+}
+
+.border-preview.pink {
+  background: #f1ccd7;
+  border-color: #fff6f6;
+}
+
+.border-preview.mint {
+  background: #d5e7da;
+  border-color: #f9fffb;
+}
+
+.border-preview.blue {
+  background: #cbdde8;
+}
+
+.border-preview.berry {
+  background: #d2a0b1;
+  border-color: #fff2f7;
+}
+
+.border-preview.checker {
+  background:
+    repeating-conic-gradient(
+      #efe0c4 0 25%,
+      #514b50 0 50%
+    ) 50% / 15px 15px;
+}
+
+.border-preview.kraft {
+  background: #caa97d;
+  border-color: #f5e8d0;
+}
+
+.border-preview.night {
+  background: #33303b;
+  border-color: #dfd6e8;
+}
+
+.border-preview.night i {
+  color: #f7effa;
+}
+
+/* ================================
+   FILTERS
+================================ */
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 6px;
+}
+
+.filter-chip {
+  padding: 8px 6px;
+
+  border: 1px solid #ddcfc1;
+  background: #fff8f0;
+
+  border-radius: 9px;
+
+  font: 600 10px "Nunito";
+
+  color: #665b57;
+
+  cursor: pointer;
+}
+
+.filter-chip.active {
+  background: #2f2a2e;
+
+  color: #fff9f0;
+
+  border-color: #2f2a2e;
+
+  box-shadow: 2px 3px 0 #d99aaa;
+}
+
+.filter-foot {
+  margin-top: 7px;
+
+  font-size: 10px;
+
+  color: #8a7a73;
+}
+
+/* ================================
+   STICKERS
+================================ */
+
+.sticker-tabs {
+  display: flex;
+  gap: 6px;
+
+  margin-bottom: 8px;
+
+  flex-wrap: wrap;
+}
+
+.sticker-tab {
+  padding: 6px 9px;
+
+  border-radius: 8px;
+
+  background: #f4eadf;
+
+  font: 700 10px "DM Mono";
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  color: #756761;
+}
+
+.sticker-tab.active {
+  background: #312c30;
+
+  color: #fff7ee;
+}
+
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  gap: 6px;
+}
+
+.sticker-btn {
+  aspect-ratio: 1;
+
+  padding: 4px;
+
+  border: 1px solid #dfd2c7;
+
+  border-radius: 9px;
+
+  background: #fffaf3;
+
+  cursor: pointer;
+
+  font-size: 22px;
+
+  display: grid;
+  place-items: center;
+
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease;
+}
+
+.sticker-btn:hover {
+  transform: rotate(-4deg) translateY(-1px);
+
+  box-shadow:
+    2px 4px 0 rgba(174, 120, 100, 0.16);
+}
+
+.sticker-btn.word-preview {
+  font: 700 11px/1 "Gochi Hand";
+
+  color: #322d31;
+
+  background: #fff0e7;
+
+  text-align: center;
+}
+
+.clear-stickers {
+  margin-top: 8px;
+
+  font: 600 10px "DM Mono";
+
+  color: #977a73;
+
+  cursor: pointer;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ================================
+   INPUTS
+================================ */
+
+.split-fields {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+
+  gap: 12px;
+}
+
+.scrap-input {
+  width: 100%;
+
+  padding: 11px 13px;
+
+  border-radius: 10px;
+
+  border: 1px dashed #cdbca9;
+
+  background: #fffaf2;
+
+  color: #3a3331;
+
+  outline: none;
+
+  font: 500 20px "Caveat";
+}
+
+.scrap-input:focus {
+  border-color: #d894a6;
+
+  box-shadow:
+    0 0 0 3px rgba(216, 148, 166, 0.12);
+}
+
+/* ================================
+   MODE SWITCH
+================================ */
+
+.mode-switch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 5px;
+
+  padding: 4px;
+
+  background: #f2e9df;
+
+  border-radius: 10px;
+}
+
+.mode-btn {
+  padding: 8px 5px;
+
+  border-radius: 7px;
+
+  font: 700 10px "Nunito";
+
+  cursor: pointer;
+
+  color: #756863;
+}
+
+.mode-btn.active {
+  background: #fffaf2;
+
+  color: #2f2a2e;
+
+  box-shadow:
+    0 3px 8px rgba(66, 48, 39, 0.08);
+}
+
+/* ================================
+   SHUTTER
+================================ */
+
+.shutter {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+
+  gap: 11px;
+
+  width: 100%;
+
+  padding: 13px 14px;
+
+  margin-top: 14px;
+
+  background: #312c30;
+  color: #fffaf1;
+
+  border-radius: 15px;
+
+  cursor: pointer;
+
+  box-shadow: 5px 6px 0 #d78fa3;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.shutter:hover {
+  transform: translate(-2px, -2px);
+
+  box-shadow:
+    7px 8px 0 #d78fa3;
+}
+
+.shutter:disabled {
+  opacity: 0.7;
+
+  cursor: wait;
+
+  transform: none;
+
+  box-shadow:
+    3px 4px 0 #d78fa3;
+}
+
+.shutter-hole {
+  display: block;
+
+  width: 39px;
+  height: 39px;
+
+  border-radius: 50%;
+
+  background: #fff1f0;
+
+  box-shadow:
+    inset 0 0 0 9px #e78fa6;
+}
+
+.shutter b {
+  display: block;
+
+  text-align: left;
+
+  font: 600 23px "Gochi Hand";
+}
+
+.shutter small {
+  display: block;
+
+  margin-top: 1px;
+
+  text-align: left;
+
+  color: #c9bfc0;
+
+  font: 500 9px "DM Mono";
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.shutter strong {
+  font-size: 21px;
+}
+
+/* ================================
+   MEMORIES
+================================ */
+
+.memories {
+  margin-top: 22px;
+
+  padding: 24px;
+}
+
+.memory-head {
+  margin-bottom: 16px;
+}
+
+.empty-state {
+  min-height: 280px;
+
+  display: grid;
+  place-content: center;
+
+  text-align: center;
+
+  gap: 6px;
+
+  color: #8a7a74;
+}
+
+.empty-polaroid {
+  width: 130px;
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto 8px;
+
+  padding: 14px 12px 12px;
+
+  background: #fff;
+
+  border: 1px solid #eee2d9;
+
+  box-shadow: 7px 9px 0 rgba(110, 87, 76, 0.1);
+
+  transform: rotate(-3deg);
+}
+
+.empty-polaroid span {
+  font-size: 43px;
+
+  color: #d99aac;
+}
+
+.empty-polaroid small {
+  margin-top: auto;
+
+  font: 500 12px "Caveat";
+}
+
+.empty-state strong {
+  font: 600 27px "Gochi Hand";
+}
+
+.empty-state p {
+  margin: 0;
+
+  color: #9b8e88;
+
+  font-size: 12px;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.photo-card {
+  position: relative;
+}
+
+.photo-frame {
+  position: relative;
+
+  padding: 10px 10px 28px;
+
+  background: #fff;
+
+  box-shadow:
+    0 14px 28px rgba(73, 51, 43, 0.12);
+
+  transform: rotate(var(--tilt, -1deg));
+}
+
+.photo-frame::before {
+  content: "";
+
+  position: absolute;
+
+  top: -8px;
+  left: 50%;
+
+  width: 70px;
+  height: 20px;
+
+  transform:
+    translateX(-50%)
+    rotate(-2deg);
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #eeb6bd 0 7px,
+      #f3c8ce 7px 14px
+    );
+
+  opacity: 0.84;
+}
+
+.photo-frame img {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1.08;
+
+  object-fit: cover;
+
+  background: #ede2d6;
+}
+
+.photo-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+
+  margin-top: 8px;
+}
+
+.photo-info span {
+  font: 600 13px "Gochi Hand";
+
+  color: #665853;
+}
+
+.gallery-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.download-link,
+.delete-photo {
+  padding: 7px 8px;
+
+  border-radius: 7px;
+
+  font: 700 9px "DM Mono";
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.download-link {
+  background: #312c30;
+  color: #fff7ed;
+}
+
+.delete-photo {
+  background: #f4e8df;
+
+  color: #7c6f6a;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px 4px;
+
+  flex-wrap: wrap;
+
+  color: #7b6d68;
+
+  font: 500 9px "DM Mono";
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.site-footer > div:first-child {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.site-footer b {
+  font: 600 17px "Gochi Hand";
+
+  color: #4f4542;
+
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-link,
+.footer-email {
+  font: 500 9px "DM Mono";
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  text-decoration: none;
+
+  color: #7b6d68;
+
+  cursor: pointer;
+}
+
+.footer-link:hover,
+.footer-email:hover {
+  color: var(--rose-deep);
+}
+
+/* ================================
+   TOAST
+================================ */
+
+.toast {
+  position: fixed;
+
+  right: 18px;
+  bottom: 18px;
+
+  z-index: 50;
+
+  padding: 11px 14px;
+
+  border-radius: 10px;
+
+  background: #312c30;
+  color: #fff8f0;
+
+  box-shadow:
+    0 12px 24px rgba(30, 23, 25, 0.16);
+
+  font-size: 12px;
+
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  pointer-events: none;
+
+  transition: 0.22s ease;
+}
+
+.toast.show {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* ================================
+   MODAL
+================================ */
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 100;
+
+  display: grid;
+  place-items: center;
+
+  padding: 20px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(39, 32, 35, 0.42);
+
+  backdrop-filter: blur(4px);
+}
+
+.modal-card {
+  position: relative;
+
+  z-index: 1;
+
+  width: min(520px, 100%);
+
+  padding: 26px 28px;
+
+  border-radius: 22px;
+}
+
+.modal-card h2 {
+  margin: 7px 0 12px;
+
+  font: 600 34px "Gochi Hand";
+}
+
+.modal-card p {
+  color: #675c58;
+
+  line-height: 1.65;
+
+  font-size: 13px;
+}
+
+.modal-close {
+  position: absolute;
+
+  right: 15px;
+  top: 12px;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  background: #f0e5da;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.modal-note {
+  display: block;
+
+  margin-top: 12px;
+
+  color: #8c7e78;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.modal-note code {
+  font-family: "DM Mono";
+  font-size: 10px;
+
+  background: #f0e5da;
+
+  padding: 2px 4px;
+
+  border-radius: 4px;
+}
+
+.modal-email {
+  margin-top: 8px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1080px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbox {
+    order: 2;
+  }
+
+  .hero {
+    grid-template-columns: 1fr 230px;
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(100% - 18px, 680px);
+    margin-top: 10px;
+  }
+
+  .site-header {
+    padding: 11px 12px;
+  }
+
+
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .hero-copy {
+    padding: 25px 23px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .hero-note {
+    min-height: 170px;
+  }
+
+  .quickbar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quickbar > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .quickbar > div:nth-child(-n + 2) {
+    border-bottom: 1px dashed #d7c8b9;
+  }
+
+  .border-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .filter-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sticker-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .camera-hint {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .site-footer {
+    display: block;
+  }
+
+  .site-footer > div:first-child {
+    margin-bottom: 10px;
+  }
+
+  .workspace {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .section-head h2 {
+    font-size: 26px;
+  }
+
+  .booth-card,
+  .toolbox,
+  .memories {
+    padding: 16px;
+  }
+
+  .layout-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .border-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sticker-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .split-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .camera-caption {
+    font-size: 8px;
+  }
+
+  .brand strong {
+    font-size: 23px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .quickbar > div {
+    padding: 10px;
+  }
+
+  .footer-links {
+    gap: 9px;
+  }
+}
+/* =========================================================
+   PHOTO PREVIEW / LIGHTBOX
+========================================================= */
+
+.photo-frame {
+    cursor: zoom-in;
+}
+
+.photo-frame img {
+    cursor: zoom-in;
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.photo-frame:hover img {
+    transform: scale(1.025);
+}
+
+/* Full-screen preview */
+.photo-preview-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(38, 31, 34, 0.72);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.photo-preview-modal.show {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+/* Modal content */
+.photo-preview-card {
+    position: relative;
+
+    width: min(920px, 94vw);
+    max-height: 92vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px 20px 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8 0%,
+            #f8eee2 100%
+        );
+
+    border: 1px solid rgba(95, 70, 57, 0.12);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 30px 80px rgba(20, 15, 18, 0.3);
+
+    transform:
+        rotate(-0.5deg)
+        scale(0.94);
+
+    transition:
+        transform 0.28s ease;
+}
+
+.photo-preview-modal.show .photo-preview-card {
+    transform:
+        rotate(-0.5deg)
+        scale(1);
+}
+
+/* Washi tape */
+.photo-preview-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -10px;
+    left: 50%;
+
+    width: 105px;
+    height: 25px;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #efb8c3 0 9px,
+            #f4ccd3 9px 18px
+        );
+
+    opacity: 0.9;
+
+    box-shadow:
+        0 4px 8px rgba(70, 45, 40, 0.08);
+
+    pointer-events: none;
+}
+
+/* Close button */
+.photo-preview-close {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    z-index: 2;
+
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #312c30;
+    color: #fff8f0;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    box-shadow:
+        3px 4px 0 #d994a7;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.photo-preview-close:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        4px 6px 0 #d994a7;
+}
+
+/* Large image */
+.photo-preview-image-wrap {
+    width: min(760px, 100%);
+
+    max-height: calc(92vh - 135px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 8px;
+
+    padding: 12px;
+
+    background: #fff;
+
+    border: 1px solid #e8ddd3;
+
+    box-shadow:
+        8px 10px 0 rgba(103, 80, 68, 0.08);
+
+    overflow: auto;
+}
+
+.photo-preview-image {
+    display: block;
+
+    max-width: 100%;
+    max-height: calc(92vh - 180px);
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    box-shadow:
+        0 15px 30px rgba(63, 44, 38, 0.16);
+}
+
+/* Bottom area */
+.photo-preview-footer {
+    width: min(760px, 100%);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 14px;
+}
+
+/* Handwritten title */
+.photo-preview-label {
+    font: 600 22px "Gochi Hand";
+
+    color: #4d4340;
+}
+
+.photo-preview-label small {
+    display: block;
+
+    margin-top: 2px;
+
+    font: 500 9px "DM Mono";
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    color: #8a7b74;
+}
+
+/* Buttons */
+.photo-preview-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.photo-preview-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    font: 700 10px "DM Mono";
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.photo-preview-download {
+    background: #312c30;
+    color: #fff8f0;
+
+    box-shadow:
+        3px 4px 0 #d994a7;
+}
+
+.photo-preview-close-btn {
+    background: #f3e8de;
+
+    color: #665954;
+
+    border: 1px solid #ddcec1;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .photo-preview-modal {
+        padding: 12px;
+    }
+
+    .photo-preview-card {
+        width: 100%;
+        padding: 16px 12px 14px;
+    }
+
+    .photo-preview-image-wrap {
+        max-height: calc(90vh - 150px);
+    }
+
+    .photo-preview-image {
+        max-height: calc(90vh - 200px);
+    }
+
+    .photo-preview-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .photo-preview-actions {
+        width: 100%;
+    }
+
+    .photo-preview-btn {
+        flex: 1;
+    }
+}
+/* =========================================================
+   MOBILE HAMBURGER
+========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 8px;
+
+    border: 1px solid rgba(92, 68, 58, 0.15);
+    border-radius: 12px;
+
+    background: #f7ecdf;
+
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    flex-shrink: 0;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 20px;
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: #302a2d;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+/* Burger → X */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .site-header {
+        position: sticky;
+        top: 10px;
+
+        z-index: 200;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 10px 12px;
+    }
+
+    /* SHOW HAMBURGER */
+    .menu-toggle {
+        display: flex !important;
+    }
+
+    /* HIDE DESKTOP NAV BY DEFAULT */
+    .top-nav {
+        position: absolute;
+
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+
+        display: flex;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 5px;
+
+        padding: 10px;
+
+        background: var(--paper);
+
+        border: 1px solid rgba(92, 68, 58, 0.12);
+        border-radius: 18px;
+
+        box-shadow:
+            0 18px 35px rgba(71, 53, 46, 0.14);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(-8px);
+
+        pointer-events: none;
+
+        transition:
+            opacity 0.2s ease,
+            visibility 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    /* OPEN MENU */
+    .top-nav.open {
+        opacity: 1;
+        visibility: visible;
+
+        transform: translateY(0);
+
+        pointer-events: auto;
+    }
+
+    /* SHOW ALL MENU ITEMS WHEN OPEN */
+    .top-nav a,
+    .top-nav .nav-link {
+        display: flex !important;
+
+        width: 100%;
+
+        align-items: center;
+
+        padding: 12px 13px;
+
+        border: 0;
+
+        border-radius: 10px;
+
+        background: transparent;
+
+        font-size: 11px;
+    }
+
+    .top-nav a:hover,
+    .top-nav .nav-link:hover {
+        background: #f7ecdf;
+    }
+
+    .top-nav .icon-link {
+        display: flex !important;
+    }
+
+    .brand strong {
+        font-size: 24px;
+    }
+
+    .brand-stamp {
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width: 760px) {
+
+    .site-header {
+        overflow: visible !important;
+    }
+
+    .top-nav {
+        z-index: 9999;
+    }
+
+    .top-nav.open {
+        display: flex !important;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+}

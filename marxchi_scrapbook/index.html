@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f2e8da" />
+    <meta
+      name="description"
+      content="Marxchi Studio is a scrapbook-inspired online photobooth for creating playful photo memories with filters, stickers, frames, and photo strips."
+    />
+    <title>Marxchi Studio — Online Photobooth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Caveat:wght@500;600;700&family=DM+Mono:wght@400;500&family=Gochi+Hand&family=Nunito:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  </head>
+  <body>
+    <div class="paper-grain" aria-hidden="true"></div>
+    <div class="doodle-field" aria-hidden="true">
+      <span class="doodle d1">✦</span><span class="doodle d2">♡</span
+      ><span class="doodle d3">✎</span><span class="doodle d4">✿</span>
+    </div>
+
+    <main class="page" id="top">
+      <header class="site-header paper-card">
+        <!-- BRAND -->
+        <a class="brand" href="#top" aria-label="Marxchi Studio home">
+          <span class="brand-stamp">M</span>
+
+          <span>
+            <strong>marxchi studio</strong>
+            <small>scrapbook photobooth</small>
+          </span>
+        </a>
+
+        <!-- MOBILE HAMBURGER -->
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="topNav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- NAVIGATION -->
+        <nav class="top-nav" id="topNav" aria-label="Primary navigation">
+          <a href="#booth"> Booth </a>
+
+          <a href="#memory"> Memories </a>
+
+          <a href="#about"> About </a>
+
+          <button class="nav-link" id="privacyBtn" type="button">
+            Privacy
+          </button>
+
+          <a
+            class="icon-link"
+            href="mailto:?subject=Marxchi%20Studio%20Feedback"
+            title="Send feedback"
+            aria-label="Send feedback"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 5.5h16v13H4zM4.5 6l7.5 6 7.5-6" />
+            </svg>
+
+            <span> Feedback </span>
+          </a>
+        </nav>
+      </header>
+
+      <section class="hero" id="about">
+        <div class="hero-copy paper-card tilt-left">
+          <div class="paper-label">01 / YOUR LITTLE PHOTO STUDIO</div>
+          <h1>Make it messy.<br /><span>Keep the memory.</span></h1>
+          <p>
+            Build your own photo page with playful layouts, familiar photo
+            filters, paper frames, meme stickers and handwritten notes.
+            Everything is assembled in your browser.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary big" id="heroStart" type="button">
+              Start camera <span>↗</span>
+            </button>
+            <a class="btn btn-paper" href="#booth">Customize first</a>
+          </div>
+          <div class="hero-chips">
+            <span>✦ no account</span><span>✂ original artwork</span
+            ><span>♡ browser-side editing</span>
+          </div>
+        </div>
+        <aside class="hero-note paper-note tilt-right">
+          <span class="pin"></span>
+          <strong>today's note</strong>
+          <div class="note-big">No perfect<br />poses allowed.</div>
+          <p>take the picture<br />you'll laugh at later ✦</p>
+          <small>— marxchi</small>
+        </aside>
+      </section>
+
+      <section class="quickbar paper-card" aria-label="Booth shortcuts">
+        <div>
+          <span class="quick-icon">01</span><b>Layout</b
+          ><small>single or strips</small>
+        </div>
+        <div>
+          <span class="quick-icon">02</span><b>Style</b
+          ><small>filters + paper</small>
+        </div>
+        <div>
+          <span class="quick-icon">03</span><b>Decorate</b
+          ><small>stickers + notes</small>
+        </div>
+        <div>
+          <span class="quick-icon">04</span><b>Save</b
+          ><small>download PNG</small>
+        </div>
+      </section>
+
+      <section class="workspace" id="booth">
+        <section class="booth-card paper-card">
+          <div class="section-head">
+            <div>
+              <div class="paper-label">02 / THE BOOTH</div>
+              <h2>Click. Pose. Keep it.</h2>
+            </div>
+            <span class="status" id="cameraStatus"><i></i> camera off</span>
+          </div>
+
+          <div class="camera-shell">
+            <div class="washi washi-a"></div>
+            <div class="washi washi-b"></div>
+            <div class="camera-stage" id="cameraWrap" data-frame="cream">
+              <div class="camera-placeholder" id="cameraPlaceholder">
+                <div class="placeholder-card">
+                  <div class="placeholder-doodle">✦</div>
+                  <strong id="placeholderTitle">Ready for your page?</strong>
+                  <span id="placeholderText"
+                    >Start the camera once, then the same button controls it on
+                    or off.</span
+                  >
+                  <button
+                    class="btn btn-primary"
+                    id="placeholderStart"
+                    type="button"
+                  >
+                    Start camera <span>↗</span>
+                  </button>
+                </div>
+              </div>
+              <video id="video" autoplay muted playsinline></video>
+              <div
+                class="frame-live frame-cream"
+                id="frameLive"
+                aria-hidden="true"
+              ></div>
+              <div class="camera-vignette"></div>
+              <div class="countdown" id="countdown" aria-live="polite"></div>
+              <div
+                class="sticker-layer"
+                id="stickerLayer"
+                aria-label="Sticker placement area"
+              ></div>
+              <div class="shot-tip">
+                drag stickers • pinch/resize in the desktop booth
+              </div>
+            </div>
+            <div class="camera-caption">
+              <span>✎ drag stickers over the photo</span
+              ><span id="liveFrameLabel">FRAME: CREAM PAPER</span>
+            </div>
+          </div>
+
+          <div class="camera-controls">
+            <button class="btn btn-secondary" id="cameraToggle" type="button">
+              ◉ turn on camera
+            </button>
+            <button class="btn btn-secondary" id="flipCamera" type="button">
+              ↔ flip
+            </button>
+            <button class="btn btn-secondary" id="timerBtn" type="button">
+              ⏱ 3 sec
+            </button>
+            <span class="camera-hint" id="cameraHint"
+              >camera access is requested only after you press Start
+              camera.</span
+            >
+          </div>
+
+          <button class="shutter" id="capture" type="button">
+            <span class="shutter-hole"></span>
+            <span
+              ><b id="captureLabel">Take photo</b
+              ><small id="captureSub">single memory</small></span
+            >
+            <strong>→</strong>
+          </button>
+        </section>
+
+        <aside class="toolbox paper-card">
+          <div class="section-head compact">
+            <div>
+              <div class="paper-label">03 / BUILD YOUR PAGE</div>
+              <h2>Make it yours.</h2>
+            </div>
+            <span class="clip">paper clip</span>
+          </div>
+
+          <div class="tool-section first">
+            <div class="tool-title">
+              <b>Layout</b><span id="modeName">Single</span>
+            </div>
+            <div class="layout-grid" id="layoutGrid">
+              <button
+                class="layout-card active"
+                data-mode="single"
+                type="button"
+              >
+                <span class="layout-art layout-single"></span><b>Single</b
+                ><small>one photo</small>
+              </button>
+              <button class="layout-card" data-mode="duo" type="button">
+                <span class="layout-art layout-duo"></span><b>Duo</b
+                ><small>two photos</small>
+              </button>
+              <button class="layout-card" data-mode="strip" type="button">
+                <span class="layout-art layout-strip"></span><b>Strip ×4</b
+                ><small>classic booth</small>
+              </button>
+              <button class="layout-card" data-mode="film" type="button">
+                <span class="layout-art layout-film"></span><b>Film ×3</b
+                ><small>vertical roll</small>
+              </button>
+            </div>
+            <div class="strip-note" id="stripNote">
+              Strip mode takes multiple timed shots and combines them into one
+              printable memory. You can change style between shots.
+            </div>
+          </div>
+
+          <div class="tool-section">
+            <div class="tool-title">
+              <b>Border / paper</b><span id="frameName">Cream Paper</span>
+            </div>
+            <div class="border-grid" id="frameGrid">
+              <button
+                class="border-card active"
+                data-frame="cream"
+                type="button"
+              >
+                <span class="border-preview cream"><i>tape</i></span
+                ><b>Cream Paper</b>
+              </button>
+              <button class="border-card" data-frame="pink" type="button">
+                <span class="border-preview pink"><i>love note</i></span
+                ><b>Blush Mail</b>
+              </button>
+              <button class="border-card" data-frame="mint" type="button">
+                <span class="border-preview mint"><i>daily</i></span
+                ><b>Mint Journal</b>
+              </button>
+              <button class="border-card" data-frame="blue" type="button">
+                <span class="border-preview blue"><i>weekend</i></span
+                ><b>Blue Postcard</b>
+              </button>
+              <button class="border-card" data-frame="berry" type="button">
+                <span class="border-preview berry"><i>xoxo</i></span
+                ><b>Berry Doodle</b>
+              </button>
+              <button class="border-card" data-frame="checker" type="button">
+                <span class="border-preview checker"><i>lol</i></span
+                ><b>Checker Fun</b>
+              </button>
+              <button class="border-card" data-frame="kraft" type="button">
+                <span class="border-preview kraft"><i>found</i></span
+                ><b>Kraft Note</b>
+              </button>
+              <button class="border-card" data-frame="night" type="button">
+                <span class="border-preview night"><i>late night</i></span
+                ><b>Midnight Page</b>
+              </button>
+            </div>
+          </div>
+
+          <div class="tool-section">
+            <div class="tool-title">
+              <b>Filter</b><span id="filterName">Natural</span>
+            </div>
+            <div class="filter-grid" id="filterRow">
+              <button
+                class="filter-chip active"
+                data-filter="none"
+                type="button"
+              >
+                Natural
+              </button>
+              <button class="filter-chip" data-filter="soft" type="button">
+                Soft
+              </button>
+              <button class="filter-chip" data-filter="vivid" type="button">
+                Vivid
+              </button>
+              <button class="filter-chip" data-filter="film" type="button">
+                Film
+              </button>
+              <button class="filter-chip" data-filter="vintage" type="button">
+                Vintage
+              </button>
+              <button class="filter-chip" data-filter="faded" type="button">
+                Faded
+              </button>
+              <button class="filter-chip" data-filter="noir" type="button">
+                Noir
+              </button>
+              <button class="filter-chip" data-filter="mono" type="button">
+                Mono
+              </button>
+              <button class="filter-chip" data-filter="dreamy" type="button">
+                Dreamy
+              </button>
+              <button class="filter-chip" data-filter="cool" type="button">
+                Cool
+              </button>
+              <button class="filter-chip" data-filter="sunset" type="button">
+                Sunset
+              </button>
+              <button class="filter-chip" data-filter="polaroid" type="button">
+                Polaroid
+              </button>
+              <button class="filter-chip" data-filter="vhs" type="button">
+                VHS
+              </button>
+              <button class="filter-chip" data-filter="peach" type="button">
+                Peach
+              </button>
+              <button class="filter-chip" data-filter="coffee" type="button">
+                Coffee
+              </button>
+              <button class="filter-chip" data-filter="candy" type="button">
+                Candy
+              </button>
+              <button class="filter-chip" data-filter="matte" type="button">
+                Matte
+              </button>
+              <button class="filter-chip" data-filter="golden" type="button">
+                Golden
+              </button>
+              <button class="filter-chip" data-filter="rose" type="button">
+                Rose
+              </button>
+              <button class="filter-chip" data-filter="dramatic" type="button">
+                Dramatic
+              </button>
+            </div>
+            <div class="filter-foot">
+              Classic looks, tuned for a browser booth — then baked into the
+              final PNG.
+            </div>
+          </div>
+
+          <div class="tool-section">
+            <div class="tool-title">
+              <b>Stickers</b><span>tap to add · drag to place</span>
+            </div>
+            <div class="sticker-tabs" id="stickerTabs">
+              <button class="sticker-tab active" data-tab="cute" type="button">
+                cute
+              </button>
+              <button class="sticker-tab" data-tab="meme" type="button">
+                meme
+              </button>
+              <button class="sticker-tab" data-tab="doodle" type="button">
+                doodle
+              </button>
+              <button class="sticker-tab" data-tab="food" type="button">
+                food
+              </button>
+            </div>
+            <div class="sticker-grid" id="stickerGrid"></div>
+            <button class="clear-stickers" id="clearStickers" type="button">
+              × remove all stickers
+            </button>
+          </div>
+
+          <div class="tool-section split-fields">
+            <div>
+              <div class="tool-title">
+                <label for="caption">Handwritten note</label
+                ><span>optional</span>
+              </div>
+              <input
+                class="scrap-input"
+                id="caption"
+                maxlength="46"
+                type="text"
+                placeholder="best day ever ♡"
+                autocomplete="off"
+              />
+            </div>
+            <div>
+              <div class="tool-title">
+                <b>Photo shape</b><span id="shapeName">Classic</span>
+              </div>
+              <div class="mode-switch" id="shapeSwitch">
+                <button
+                  class="mode-btn active"
+                  data-shape="classic"
+                  type="button"
+                >
+                  Classic
+                </button>
+                <button class="mode-btn" data-shape="square" type="button">
+                  Square
+                </button>
+                <button class="mode-btn" data-shape="postcard" type="button">
+                  Postcard
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="memories paper-card" id="memory">
+        <div class="section-head memory-head">
+          <div>
+            <div class="paper-label">04 / YOUR MEMORIES</div>
+            <h2>Fresh from the booth ✿</h2>
+          </div>
+          <button class="btn btn-secondary" id="reset" type="button">
+            ↺ clear all
+          </button>
+        </div>
+        <div class="empty-state" id="emptyState">
+          <div class="empty-polaroid">
+            <span>♡</span><small>your next page</small>
+          </div>
+          <strong>No photos yet</strong>
+          <p>
+            Start the camera, take a picture, and it will land here
+            automatically.
+          </p>
+        </div>
+        <div class="photo-gallery" id="gallery"></div>
+      </section>
+
+      <footer class="site-footer">
+        <div>
+          <b>marxchi studio</b><span>original scrapbook photobooth</span>
+        </div>
+        <div class="footer-links">
+          <button type="button" class="footer-link" id="privacyBtnBottom">
+            Privacy policy
+          </button>
+          <button type="button" class="footer-link" id="contactBtn">
+            Contact
+          </button>
+          <a
+            class="footer-email"
+            href="mailto:?subject=Marxchi%20Studio%20Feedback"
+            title="Email feedback"
+            aria-label="Email feedback"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 5.5h16v13H4zM4.5 6l7.5 6 7.5-6" />
+            </svg>
+            Email feedback
+          </a>
+        </div>
+      </footer>
+    </main>
+
+    <canvas id="canvas" hidden></canvas>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="modal" id="privacyModal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section
+        class="modal-card paper-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="privacyTitle"
+      >
+        <button
+          class="modal-close"
+          type="button"
+          data-close-modal
+          aria-label="Close"
+        >
+          ×
+        </button>
+        <div class="paper-label">SITE NOTE</div>
+        <h2 id="privacyTitle">Privacy, in plain English.</h2>
+        <p>
+          <b>Camera:</b> Marxchi Studio asks for camera permission only after
+          you press Start camera.
+        </p>
+        <p>
+          <b>Photos:</b> This project edits photos in your browser. It does not
+          include an upload feature or an account system. Your images stay in
+          the page until you download them or close/refresh the tab.
+        </p>
+        <p>
+          <b>Cookies:</b> This site does not use cookies or tracking scripts. It
+          does not collect any personal data.
+        </p>
+        <p>
+          <b>Feedback:</b> If you send feedback via email, your message will be
+          sent to the email address you provide. It is not stored or shared by
+          this site.
+        </p>
+        <p>
+          <b>Disclaimer:</b> This is a personal project. It is not affiliated
+          with any company or brand. It is provided as-is, without warranty.
+        </p>
+      </section>
+    </div>
+
+    <div class="modal" id="contactModal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section
+        class="modal-card paper-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contactTitle"
+      >
+        <button
+          class="modal-close"
+          type="button"
+          data-close-modal
+          aria-label="Close"
+        >
+          ×
+        </button>
+        <div class="paper-label">SAY HELLO</div>
+        <h2 id="contactTitle">Send feedback.</h2>
+        <p>Found a bug? Have a border idea? Want another sticker pack?</p>
+        <a
+          class="btn btn-primary big modal-email"
+          id="contactEmailLink"
+          href="mailto:?subject=Marxchi%20Studio%20Feedback"
+          >Email Marxchi Studio <span>↗</span></a
+        >
+        <small class="modal-note"
+          >The link is ready for your mail app. Add your own address in
+          <code>script.js</code> before publishing.</small
+        >
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
